@@ -1,12 +1,41 @@
-<mat-card *ngFor="let movie of movies; let i=index">
+<div class="allMovies" style="display: flex;">
+  <mat-card class="movieCard" *ngFor="let movie of movies;" style="flex: 1 1 auto;">
+    <mat-card-header>
+      <mat-card-title>{{movie.title}}</mat-card-title>
+      <mat-card-subtitle>Directed by: {{movie.director.name}}</mat-card-subtitle>
 
-  <mat-dialog-content>
+    </mat-card-header>
+    <img class="movieImg" [src]='movie.imageurl' style="max-height: 600px" alt={{movie.title}} />
+    <mat-card-actions>
+      <button
+        (click)="openGenreView(movie.genres)"
+        mat-button
+        color="accent"
+      >
+        Genre
+      </button>
+      <button
+        (click)="openDirectorView(movie.director)"
+        mat-button
+        color="primary"
+      >
+        Director
+      </button>
+      <button
+        mat-button
+        color="primary"
+      > Synopsis
+      </button>
+      <mat-icon>favorite_border</mat-icon>
+    </mat-card-actions>
 
-    <mat-card-title>{{movie.title}}</mat-card-title>
-    <mat-card-subtitle>
-      <img [src]="movie.imageurl"/>
-    </mat-card-subtitle>
-  </mat-dialog-content>
+    <mat-card-footer>
+      <button mat-button
+      color="primary">Add to Favorite Movies</button>
+    </mat-card-footer>
 
+  </mat-card>
+</div>
 
-</mat-card>
+<!--Movie Details and button to add to favorite movies goes here-->
+<!--Buttons to view genre and directors also go here-->

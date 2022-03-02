@@ -4,7 +4,8 @@ import {catchError, Observable, throwError} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 //Declaring the api url
-const apiUrl = 'https://my-flix-list.herokuapp.com/'
+const apiUrl = 'http://localhost:8000/';
+// https://my-flix-list.herokuapp.com/
 
 @Injectable({
   providedIn: 'root'
@@ -75,6 +76,21 @@ export class FetchApiDataService {
     );
   }
 
+  // API Call to get all directors
+
+  getAllDirectors(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get<any>(apiUrl + 'directors', {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      })
+    }).pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+
+
   // Api Call for one Director
 
   getDirector(directorId: string): Observable<any> {
@@ -89,11 +105,26 @@ export class FetchApiDataService {
     );
   }
 
+  // API Call to get all genres
+
+  getAllGenres(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get<any>(apiUrl + 'genres', {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      })
+    }).pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+
+
   // APi Call for one genre
 
-  getGenre(name: string): Observable<any> {
+  getGenres(genreId: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get<any>(apiUrl + 'genres/' + name, {
+    return this.http.get<any>(apiUrl + 'genres/' + genreId, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
