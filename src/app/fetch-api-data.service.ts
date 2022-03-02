@@ -10,7 +10,6 @@ const apiUrl = 'https://my-flix-list.herokuapp.com/'
   providedIn: 'root'
 })
 export class FetchApiDataService {
-  private _token = localStorage.getItem('token');
   // Inject the HttpClient module to the constructor params
   // This will provide HttpClient to the entire class, making it available via this.http
   constructor(private http: HttpClient) {
@@ -54,7 +53,7 @@ export class FetchApiDataService {
   const token = localStorage.getItem('token');
     return this.http.get<any>(apiUrl + 'movies', {
       headers: new HttpHeaders({
-        Authorization: 'Bearer' + token,
+        Authorization: 'Bearer ' + token,
       })
     }).pipe(
       map(this.extractResponseData),
@@ -68,7 +67,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     return this.http.get<any>(apiUrl + 'movie', {
       headers: new HttpHeaders({
-        Authorization: 'Bearer' + token,
+        Authorization: 'Bearer ' + token,
       })
     }).pipe(
       map(this.extractResponseData),
@@ -82,7 +81,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     return this.http.get<any>(apiUrl + 'directors/' + directorId, {
       headers: new HttpHeaders({
-        Authorization: 'Bearer' + token,
+        Authorization: 'Bearer ' + token,
       })
     }).pipe(
       map(this.extractResponseData),
@@ -96,7 +95,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     return this.http.get<any>(apiUrl + 'genres/' + name, {
       headers: new HttpHeaders({
-        Authorization: 'Bearer' + token,
+        Authorization: 'Bearer ' + token,
       })
     }).pipe(
       map(this.extractResponseData),
@@ -110,7 +109,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     return this.http.get<any>(apiUrl + 'users/' + username, {
       headers: new HttpHeaders({
-        Authorization: 'Bearer' + token,
+        Authorization: 'Bearer ' + token,
       })
     }).pipe(
       map(this.extractResponseData),
