@@ -44,17 +44,33 @@ $gradient-radial: radial-gradient(#000814ff, #001d3dff, #003566ff, #ffc300ff, #f
   padding: 5px;
   margin: 10px;
   border: $prussian-blue solid 3px ;
-  max-width: 500px;
+  border-radius: 0.5px;
+  height: auto;
+  max-width: 600px;
 justify-content: center;
 
 }
 
 .movieImg {
   object-fit: cover;
-  width: 100%
+  align-content: center;
+  width: 100%;
+  height: 100%;
+
 }
 
 
-button {
+.movieCardActions {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+  align-content: center;
+}
 
+.cardFooter {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
