@@ -23,13 +23,17 @@ import { GenresComponent } from './genres/genres.component';
 import { DirectorsComponent } from './directors/directors.component';
 import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatDividerModule} from "@angular/material/divider";
+import { GravatarModule } from 'ngx-gravatar';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent},
   { path: 'genres', component: GenresComponent},
   {path: 'directors', component: DirectorsComponent},
-  { path: 'user', component: UserProfileComponent},
+  { path: 'users/:username', component: UserProfileComponent},
   { path: 'favoriteMovies', component: FavoriteMoviesComponent},
   {path: '', redirectTo: 'welcome', pathMatch: 'prefix'},
 ];
@@ -49,21 +53,25 @@ const appRoutes: Routes = [
 
   // Any features that need to be included from Material Design get imported here
 
-  imports: [
-    RouterModule.forRoot(appRoutes),
-    MatIconModule,
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    FormsModule,
-  ],
+    imports: [
+        RouterModule.forRoot(appRoutes),
+        MatIconModule,
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatDialogModule,
+        MatSnackBarModule,
+        FormsModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatDividerModule,
+      GravatarModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

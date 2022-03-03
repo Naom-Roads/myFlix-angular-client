@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MovieCardComponent} from "../movie-card/movie-card.component";
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-user-profile',
@@ -7,10 +8,12 @@ import {MovieCardComponent} from "../movie-card/movie-card.component";
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
+  user: any[] = [];
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) private data: { user: any }) { }
 
   ngOnInit(): void {
+    this.user = this.data.user;
   }
 
   // Might user this later to redirect user to all movies

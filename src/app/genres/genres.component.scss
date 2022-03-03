@@ -7,20 +7,25 @@ $gold-web-golden: hsla(50, 100%, 52%, 1);
 
 
 .genresCard {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 10px;
-  color: white;
+  justify-content: space-between;
+  padding: 5px;
   margin: 10px;
+  color: white;
   background-color: $oxford-blue;
 }
 
-
-.genresContent {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 10px;
-
+.genresTitle {
+  display: inline-flex;
+  justify-self: left;
+  padding-bottom: 8px;
+  padding-top: 5px;
 }
 
-
+.genresContent {
+   display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: justify;
+  width: 300px;
+  padding: 0 15px;
+}

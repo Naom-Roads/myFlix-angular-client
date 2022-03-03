@@ -33,7 +33,10 @@ export class UserLoginFormComponent implements OnInit {
     this.router.navigate(['movies']);
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {
       localStorage.setItem("token", response.token);
-      this.dialogRef.close();
+      localStorage.setItem("user", JSON.stringify(response.user));
+      this.dialogRef.close({
+        username: response.user.username
+      });
       this.snackBar.open(response.user.username, 'Ok', {
         duration: 2000
       });

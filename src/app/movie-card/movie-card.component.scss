@@ -32,7 +32,7 @@ $gradient-radial: radial-gradient(#000814ff, #001d3dff, #003566ff, #ffc300ff, #f
 
 
 .allMovies {
-  background-color: $oxford-blue;
+
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -47,7 +47,7 @@ $gradient-radial: radial-gradient(#000814ff, #001d3dff, #003566ff, #ffc300ff, #f
   border-radius: 0.5px;
   height: auto;
   max-width: 600px;
-justify-content: center;
+  justify-content: center;
 
 }
 
