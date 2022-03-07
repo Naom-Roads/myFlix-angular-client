@@ -59,10 +59,10 @@
 </mat-card>
 
 <!--  Display of Favorite Movies-->
-
+<mat-divider></mat-divider>
 <mat-card class="favoriteMoviesCard">
-  <div class="favoriteMovies" style="display: flex;">
-    <h1> Your Favorite Movies List </h1>
+  <h1> Your Favorite Movies List </h1>
+  <div class="favoriteMovies">
     <mat-card class="favoriteMovieCard" *ngFor="let favoriteMovie of favoriteMovies;" style="flex: 1 1 auto;">
       <mat-card-header>
         <mat-card-title>{{favoriteMovie.title}}</mat-card-title>
@@ -94,3 +94,4 @@
     </mat-card>
   </div>
 </mat-card>
+

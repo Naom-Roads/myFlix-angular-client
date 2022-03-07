@@ -36,12 +36,11 @@ $gradient-radial: radial-gradient(#000814ff, #001d3dff, #003566ff, #ffc300ff, #f
 mat-card {
   display: flex;
   flex-direction: column;
-
+  margin-top: 20px;
 }
 
 .favoriteMovies {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 5px;

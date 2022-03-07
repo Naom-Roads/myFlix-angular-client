@@ -16,5 +16,4 @@ export class DirectorsComponent {
   ngOnInit(): void {
     this.director = this.data.director
   }
-
 }

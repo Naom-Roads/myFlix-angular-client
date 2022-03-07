@@ -14,5 +14,4 @@ export class MovieDescriptionComponent implements OnInit {
   ngOnInit(): void {
     this.description = this.data.description;
   }
-
 }

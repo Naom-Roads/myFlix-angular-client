@@ -12,7 +12,6 @@ export class GenresComponent {
 
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: { genres : any}) {
-
   }
 
   ngOnInit(): void {

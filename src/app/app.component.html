@@ -1,5 +1,5 @@
 <mat-toolbar>
-  MyFlix
+  <h1 class="brand">MyFlix</h1>
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -19,7 +19,7 @@
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button">
+      <button routerLink="/movies" mat-button class="menu-button">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
@@ -32,10 +32,10 @@
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button">
+      <a href="https://naom-roads.github.io/Portfolio-Website/about.html" target="_blank" mat-button class="menu-button">
         <mat-icon>info</mat-icon>
         <span>About</span>
-      </button>
+      </a>
     </mat-sidenav>
     <mat-sidenav-content role="directory">
       <div class="content mat-elevation-z4">

@@ -58,7 +58,6 @@ export class MovieCardComponent {
           duration: 3000,
         });
       }
-    console.log(response);
     }, () => {
       this.snackBar.open('Movie has already been added', 'Close', {
         duration: 3000,

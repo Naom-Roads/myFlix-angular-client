@@ -31,8 +31,15 @@ $gradient-bottom-left: linear-gradient(315deg, #000814ff, #001d3dff, #003566ff, 
 $gradient-radial: radial-gradient(#000814ff, #001d3dff, #003566ff, #ffc300ff, #ffd60aff);
 
 mat-toolbar {
-  background: $gradient-right;
-  color: white;
+  border-bottom: 3px solid $mikado-yellow;
+  height: 85px;
+  padding: 30px 5px;
+}
+
+.brand {
+  color: $rich-black-fogra-29;
+  font-size: 70px;
+  font-family: 'Bebas Neue', cursive;
 }
 
 mat-sidenav {

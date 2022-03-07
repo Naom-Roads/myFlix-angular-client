@@ -33,7 +33,6 @@ export class UserProfileComponent implements OnInit {
     this.getFavoriteMovies();
 
   }
-
   // Updates user
   updateUser(): void {
     this.fetchApiData.patchUser(this.user).subscribe((response) => {
@@ -72,9 +71,6 @@ export class UserProfileComponent implements OnInit {
       data: { description }
     });
   }
-
-
-
 }
 
 
