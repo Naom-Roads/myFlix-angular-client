@@ -89,7 +89,9 @@
         </button>
       </mat-card-actions>
       <mat-card-footer class="cardFooter">
-        <button mat-raised-button color="accent">Remove from Favorites</button>
+        <button
+          (click)="removeFavoriteMovie(favoriteMovie._id);"
+          mat-raised-button color="accent">Remove from Favorites</button>
       </mat-card-footer>
     </mat-card>
   </div>

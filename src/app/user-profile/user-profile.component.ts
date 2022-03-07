@@ -7,6 +7,8 @@ import {DirectorsComponent} from "../directors/directors.component";
 import {GenresComponent} from "../genres/genres.component";
 import {MatDialog} from "@angular/material/dialog";
 import {MovieDescriptionComponent} from "../movie-description/movie-description.component";
+import {Router} from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-user-profile',
@@ -15,6 +17,7 @@ import {MovieDescriptionComponent} from "../movie-description/movie-description.
 })
 export class UserProfileComponent implements OnInit {
   user: any;
+  oldUsername: string;
   favoriteMovies: any[] = [];
   directors: any[] = [];
   genres: any[] = [];
@@ -24,19 +27,28 @@ export class UserProfileComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) private data: { user: any },
               public fetchApiData: FetchApiDataService,
               public dialog: MatDialog,
+              private router: Router,
               public snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem("user") as string);
+    this.oldUsername = this.user.username;
     console.log(this.user);
     this.getFavoriteMovies();
 
   }
   // Updates user
   updateUser(): void {
-    this.fetchApiData.patchUser(this.user).subscribe((response) => {
-      this.snackBar.open(response, 'Your information has been updated successfully', {
+    this.fetchApiData.patchUser(this.oldUsername, {
+      username: this.user.username,
+      password: this.user.password,
+      email: this.user.email,
+      birthday: this.user.birthday,
+    }).subscribe((response) => {
+      localStorage.setItem("user", JSON.stringify(this.user));
+      window.open(environment.url + '/users/' + this.user.username, "_self");
+      this.snackBar.open('Your information has been updated successfully', 'Close', {
         duration: 2000
       });
       console.log(response);
@@ -48,6 +60,23 @@ export class UserProfileComponent implements OnInit {
       this.favoriteMovies = res;
     });
   }
+
+  // Remove a movie from Favorite Movies List
+
+  removeFavoriteMovie(movieId: string): void {
+    this.fetchApiData.deleteFavoriteMovie(this.user.username, movieId).subscribe((res) => {
+      this.favoriteMovies = res;
+        this.snackBar.open( 'Movie has been removed', 'Close', {
+          duration: 3000,
+        });
+    }, () => {
+      this.snackBar.open('Movie has already been removed', 'Close', {
+        duration: 3000,
+      });
+    });
+  }
+
+
 
   openDirectorView(director: any): void {
     this.dialog.open(DirectorsComponent, {
