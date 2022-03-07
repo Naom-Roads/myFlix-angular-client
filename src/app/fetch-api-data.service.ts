@@ -18,6 +18,7 @@ export class FetchApiDataService {
 
   // Non-typed response extraction
   private extractResponseData(res: Response): any {
+    console.log(res);
     const body = res;
     return body || {};
   }
@@ -30,7 +31,7 @@ export class FetchApiDataService {
     } else {
       console.error(
         `Error Status code ${error.status}, ` +
-        `Error body is: ${error.error}`);
+        `Error body is: ${error.error.message}`);
     }
     return throwError(() =>
       'Something bad happened; please try again later.');
@@ -161,14 +162,14 @@ export class FetchApiDataService {
     );
   }
 
-  postFavoriteMovies(movieId: string): Observable<any> {
+  postFavoriteMovies(movieId: string, username: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.post<any>(apiUrl + 'users/' + 'username/' + 'movies/' + movieId, {
+    return this.http.post<any>(apiUrl + 'users/' + username + '/movies/' + movieId, {}, {
     headers: new HttpHeaders({
       Authorization: 'Bearer ' + token,
     })}).pipe(
       map(this.extractResponseData),
-  catchError(this.handleError)
+      catchError(this.handleError)
   );
 }
 

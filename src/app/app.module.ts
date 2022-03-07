@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDialogModule } from '@angular/material/dialog';
+import {MatDialogModule, MAT_DIALOG_DATA, MatDialogRef, MatDialogConfig} from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
@@ -27,6 +27,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatDividerModule} from "@angular/material/divider";
 import { GravatarModule } from 'ngx-gravatar';
+import { MovieDescriptionComponent } from './movie-description/movie-description.component';
+
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -48,7 +50,8 @@ const appRoutes: Routes = [
     GenresComponent,
     DirectorsComponent,
     FavoriteMoviesComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    MovieDescriptionComponent
   ],
 
   // Any features that need to be included from Material Design get imported here
@@ -72,7 +75,11 @@ const appRoutes: Routes = [
         MatDividerModule,
       GravatarModule,
     ],
-  providers: [],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} },
+    MatDialogConfig,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

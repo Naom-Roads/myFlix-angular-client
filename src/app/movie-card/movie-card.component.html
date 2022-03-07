@@ -19,6 +19,7 @@
         Director
       </button>
       <button
+        (click)="openSynopsisView(movie.description)"
         mat-raised-button color="primary"
       > Synopsis
       </button>
@@ -26,9 +27,10 @@
     </mat-card-actions>
 
     <mat-card-footer class="cardFooter">
-      <button mat-raised-button color="accent">Add to Favorites</button>
+      <button
+        (click)="addFavoriteMovies(movie)"
+        mat-raised-button color="accent">Add to Favorites</button>
     </mat-card-footer>
-
   </mat-card>
 </div>
 

@@ -1,3 +1,4 @@
+<div class="close-button"  mat-dialog-close>X</div>
 <div style="display: flex;">
   <mat-card class='genresCard' id='genresCard' *ngFor="let genre of genres" style="flex: 1 1 auto;">
     <mat-card-header>
@@ -6,8 +7,6 @@
       <mat-card-content class="genresContent">{{genre.description}}</mat-card-content>
       <mat-card-actions>
       </mat-card-actions>
-
-
   </mat-card>
   <!--Back button should be added-->
 </div>
