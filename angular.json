@@ -107,7 +107,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "https://naom-roads.github.io/myFlix-angular-client/"
+            "baseHref": "https://naom-roads.github.io/myFlix-angular-client/welcome"
           }
         }
       }
