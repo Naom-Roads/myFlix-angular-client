@@ -1,5 +1,4 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
-import {MovieCardComponent} from "../movie-card/movie-card.component";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {FetchApiDataService} from "../fetch-api-data.service";
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -9,6 +8,11 @@ import {MatDialog} from "@angular/material/dialog";
 import {MovieDescriptionComponent} from "../movie-description/movie-description.component";
 import {Router} from "@angular/router";
 import {environment} from "../../environments/environment";
+
+/**
+ * Shows the users profile information and favorite movies list
+ * @module UserProfileComponent
+ */
 
 @Component({
   selector: 'app-user-profile',
@@ -38,7 +42,13 @@ export class UserProfileComponent implements OnInit {
     this.getFavoriteMovies();
 
   }
-  // Updates user
+
+  /**
+   * @function updateUser
+   * Takes input on user update form
+   * @returns Updated user information in JSON format
+   */
+
   updateUser(): void {
     this.fetchApiData.patchUser(this.oldUsername, {
       username: this.user.username,
@@ -55,13 +65,22 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * @function getFavoriteMovies
+   * Gets list of favorite movies through the user's username
+   */
+
   getFavoriteMovies(): void {
     this.fetchApiData.getFavoriteMovies(this.user.username).subscribe((res) => {
       this.favoriteMovies = res;
     });
   }
 
-  // Remove a movie from Favorite Movies List
+  /**
+   * @function removeFavoriteMovie
+   * @param movieId {string}
+   * @returns Message confirming the movie is no long in the list of favorite movies
+   */
 
   removeFavoriteMovie(movieId: string): void {
     this.fetchApiData.deleteFavoriteMovie(this.user.username, movieId).subscribe((res) => {
@@ -76,7 +95,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-
+  /**
+   * Opens dialog box with information regarding director
+   * @function openDirectorView
+   * @param director
+   */
 
   openDirectorView(director: any): void {
     this.dialog.open(DirectorsComponent, {
@@ -84,6 +107,12 @@ export class UserProfileComponent implements OnInit {
       data: {director}
     });
   }
+
+  /**
+   * Opens a dialog box with an array of Genres
+   * @function openGenreView
+   * @param genres {array}
+   */
 
   openGenreView(genres: Array<any>): void {
     console.log(genres);
@@ -93,6 +122,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens dialog box with description of movie
+   * @function openSynopsisView
+   * @param description
+   */
 
   openSynopsisView(description: string): void {
     this.dialog.open(MovieDescriptionComponent, {

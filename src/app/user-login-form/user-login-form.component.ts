@@ -9,11 +9,20 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 // Routes views
 import { Router } from '@angular/router';
 
+/**
+ * Allows the user to login to the application
+ * @module UserLoginFormComponent
+ *
+ */
+
+
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
   styleUrls: ['./user-login-form.component.scss']
 })
+
+
 export class UserLoginFormComponent implements OnInit {
 
   @Input() userData = { username: '', password: '' }
@@ -28,7 +37,12 @@ export class UserLoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // This function sends form input to backend
+  /**
+   * This function sends form input to backend
+   * @function loginUser
+   *
+   */
+
   loginUser(): void {
     this.router.navigate(['movies']);
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {

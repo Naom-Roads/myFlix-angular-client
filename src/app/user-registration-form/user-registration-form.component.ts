@@ -7,7 +7,11 @@ import {FetchApiDataService} from '../fetch-api-data.service';
 // This import is used to display notifications back to the user
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-// Component decorator tells angular that the class below it is a component
+/**
+ * @module UserRegistrationFormComponent
+ * Handles the registration of a new user
+ */
+
 @Component({
   selector: 'app-user-registration-form',
   templateUrl: './user-registration-form.component.html',
@@ -28,7 +32,11 @@ export class UserRegistrationFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-// Function responsible for sending the form inputs to the backend
+  /**
+   * @function registerUser
+   * Opens dialog for registration
+   */
+
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe((response) => {
       // Logic for successful user registration goes here

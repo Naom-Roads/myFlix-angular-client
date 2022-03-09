@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-import {MovieCardComponent} from "./movie-card/movie-card.component";
-import { Location } from "@angular/common";
-import { UserProfileComponent } from "./user-profile/user-profile.component";
 import {Router} from "@angular/router";
-import {FetchApiDataService} from "./fetch-api-data.service";
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {DirectorsComponent} from "./directors/directors.component";
+
+/**
+ * @module AppComponent
+ *
+ */
 
 @Component({
   selector: 'app-root',

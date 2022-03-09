@@ -22,12 +22,18 @@
       "es2020",
       "dom"
     ],
-    "strictPropertyInitialization": false,
+    "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+  },
+  "typedocOptions": {
+    "entryPoints": [
+      "src/main.ts"
+    ],
+    "out": "docs"
   }
 }
