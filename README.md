@@ -1,6 +1,9 @@
+
 # MyFlixAngularClient
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+
+<img width="1048" alt="Screenshot 2022-03-12 at 10 50 13" src="https://user-images.githubusercontent.com/44932790/158056894-ad34043d-2206-4df1-999e-c229ebd29229.png">
 
 ## Development server
 
@@ -27,7 +30,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 More information regarding the API can be found at out/index.html
-
-<img width="1048" alt="Screenshot 2022-03-12 at 10 50 13" src="https://user-images.githubusercontent.com/44932790/158056894-ad34043d-2206-4df1-999e-c229ebd29229.png">
-
 
